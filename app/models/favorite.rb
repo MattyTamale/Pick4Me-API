@@ -45,7 +45,7 @@ class Favorite
     def self.create(opts)
         results = DB.exec(
             <<-SQL
-                INSERT INTO favorites (name, shortname, address, city)
+                INSERT INTO favorites (name, shortname, address, city, comments)
                 VALUES ( '#{opts["name"]}', '#{opts["shortname"]}', '#{opts["address"]}', '#{opts["city"]}', '#{opts["comments"]}' )
                 RETURNING id, name, shortname, address, city, comments;
             SQL
